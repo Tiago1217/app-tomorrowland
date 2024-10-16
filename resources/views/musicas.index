@@ -1,0 +1,56 @@
+@extends('layout')
+
+@section('content')
+
+<div class="container mt-5">
+
+    <h1>Bem-vindo ao Tomorrowland App!</h1>
+
+    <div class="video-container" style="text-align: center;">
+        <video width="100%" controls>
+            <source src="{{ asset('videos/tomorrow.mp4') }}" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
+
+    <h2>Músicas</h2>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Artista</th>
+                <th>Palco</th>
+                <th>Data do Show</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($musicas as $musica)
+                <tr>
+                    <td>{{ $musica->nome }}</td>
+                    <td>{{ $musica->artista }}</td>
+                    <td>{{ $musica->palco }}</td>
+                    <td>{{ $musica->data_show }}</td>
+                    <td>
+                        <a href="{{ route('musicas.show', $musica->id) }}" class="btn btn-info">Ver</a>
+                        <a href="{{ route('musicas.edit', $musica->id) }}" class="btn btn-warning">Editar</a>
+                        <form action="{{ route('musicas.destroy', $musica->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Remover</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <a href="{{ route('musicas.create') }}" class="btn btn-success">Adicionar Música</a>
+</div>
+
+@endsection

@@ -1,0 +1,53 @@
+body {
+    background-color: #222; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: #ff4081; /* Cor vibrante para os títulos */
+    text-align: center;
+    margin-top: 30px;
+}
+
+.table {
+    margin-top: 20px;
+    background-color: #333; /* Fundo das tabelas */
+}
+
+.table th, .table td {
+    color: #fff; /* Texto branco nas células */
+}
+
+.btn {
+    border-radius: 20px; /* Botões com bordas arredondadas */
+}
+
+.btn-success {
+    background-color: #28a745; /* Verde */
+    border: none;
+}
+
+.btn-info {
+    background-color: #17a2b8; /* Azul claro */
+    border: none;
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Amarelo */
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Vermelho */
+    border: none;
+}
+
+.video-container {
+    margin-top: 20px;
+}
+
+video {
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+}
